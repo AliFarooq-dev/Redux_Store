@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { setProduct } from '../containers/redux/actions/productCreators'
 
 const ProductListing = () => {
-    const products = useSelector(state => state);
+    // const products = useSelector(state => state);
     const dispatch = useDispatch();
 
     const fetchProducts = async () => {
@@ -18,7 +18,7 @@ const ProductListing = () => {
 
     useEffect(() => {
         fetchProducts()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line 
     }, []);
 
     return (
