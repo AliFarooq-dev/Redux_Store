@@ -1,24 +1,23 @@
 import React from 'react';
-import axios from 'axios';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 export const Categories = () => {
-    const Disptach = useDispatch();
-    const categories = useSelector(state => state.categories.categories);
-
-    const fetchCategories = async () => {
-        const respone = await axios.get('https://fakestoreapi.com/products/categories').catch(err => console.log(err));
-        console.log(respone.data);
-        Disptach(respone.data);
-    };
-    useEffect(() => {
-        fetchCategories();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    const categories = useSelector(state => state.category.categories);
+    const renderCategory = categories.map((category, index) => {
+        return (
+            <div className="four wide column" key={index}>
+                <Link to={`/category/${category}`} >
+                    <button className=" medium ui button ui inverted orange button">{category}</button>
+                </Link>
+            </div>
+        )
+    });
 
     return (
-        <></>
+        <>
+            {renderCategory}
+        </>
     )
 };
 

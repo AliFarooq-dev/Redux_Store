@@ -4,5 +4,5 @@ import { productReducer, SelectiveProductReducer, showCategories } from './produ
 export const reducers = combineReducers({
     allProducts: productReducer,
     product: SelectiveProductReducer,
-    categories: showCategories
+    category: showCategories
 });

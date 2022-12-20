@@ -20,17 +20,16 @@ const ProductDetails = () => {
     if (productId && productId !== "") {
       fetchDetails();
     }
-    return ()=>{
+    return () => {
       Dispatch(removedSelectiveProduct());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productId]);
 
-  console.log(product);
   return (
     <div className="ui grid container">
       {Object.keys(product).length === 0 ? (
-        <div style={{marginTop: '20px'}} >...Loading</div>
+        <div style={{ marginTop: '20px' }} >...Loading</div>
       ) : (
         <div className="ui placeholder segment">
           <div className="ui two column stackable center aligned grid">
